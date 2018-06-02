@@ -1,8 +1,15 @@
 package core
 
 import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
 	"sync"
+
+	"github.com/tidwall/gjson"
 )
+
+const apiAddress = "http://free.currencyconverterapi.com/api/v5/convert?q=%s_%s&compact=y"
 
 // RateHelper struct definition
 type RateHelper struct {
@@ -34,7 +41,24 @@ func (helper *RateHelper) Query() {
 		wg.Add(1)
 
 		go func(to string) {
-			helper.SaveResult(to, to)
+			resp, err := http.Get(fmt.Sprintf(apiAddress, helper.FromCurrency, to))
+			if err != nil {
+				helper.SaveResult(to, "N/A")
+				return
+			}
+
+			defer resp.Body.Close()
+			body, err := ioutil.ReadAll(resp.Body)
+			if err != nil {
+				// handle error
+				helper.SaveResult(to, "N/A")
+				return
+			}
+
+			value := gjson.Get(string(body), fmt.Sprintf("%s_%s.val", helper.FromCurrency, to))
+
+			fmt.Println(value.String())
+			helper.SaveResult(to, value.String())
 			wg.Done()
 		}(to)
 	}

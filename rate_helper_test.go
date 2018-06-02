@@ -20,7 +20,8 @@ func TestQuery(t *testing.T) {
 		return
 	}
 
-	helper.ToCurrency = []string{"USD", "CNY", "AUD"}
+	helper.FromCurrency = "USD"
+	helper.ToCurrency = []string{"CNY", "JPY", "AUD"}
 	helper.Query()
 
 	if len(helper.Result) != 3 {
