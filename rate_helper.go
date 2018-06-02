@@ -13,6 +13,7 @@ const apiAddress = "http://free.currencyconverterapi.com/api/v5/convert?q=%s_%s&
 
 // RateHelper struct definition
 type RateHelper struct {
+	Amount       float32
 	FromCurrency string
 	ToCurrency   []string
 	Result       map[string]string
@@ -41,6 +42,8 @@ func (helper *RateHelper) Query() {
 		wg.Add(1)
 
 		go func(to string) {
+			defer wg.Done()
+
 			resp, err := http.Get(fmt.Sprintf(apiAddress, helper.FromCurrency, to))
 			if err != nil {
 				helper.SaveResult(to, "N/A")
@@ -57,9 +60,11 @@ func (helper *RateHelper) Query() {
 
 			value := gjson.Get(string(body), fmt.Sprintf("%s_%s.val", helper.FromCurrency, to))
 
-			fmt.Println(value.String())
-			helper.SaveResult(to, value.String())
-			wg.Done()
+			if helper.Amount != 0 {
+				helper.SaveResult(to, fmt.Sprintf("%.2f", float32(value.Float())*helper.Amount))
+			} else {
+				helper.SaveResult(to, value.String())
+			}
 		}(to)
 	}
 
