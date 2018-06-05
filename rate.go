@@ -1,6 +1,9 @@
 package core
 
-func Query(from string, to []string, amount float32) {
+import "fmt"
+
+// Query exchange rates for multiple currencies
+func Query(from string, amount float32, to []string) {
 	helper := NewRateHelper()
 	helper.FromCurrency = from
 	helper.ToCurrency = to
@@ -10,4 +13,7 @@ func Query(from string, to []string, amount float32) {
 	helper.Query()
 
 	// Parse result
+	for k, v := range helper.Result {
+		fmt.Printf("%s: %s \r\n", k, v)
+	}
 }
