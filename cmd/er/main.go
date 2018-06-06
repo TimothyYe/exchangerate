@@ -6,6 +6,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/olekukonko/tablewriter"
 )
 
 const defaultFromt = "USD"
@@ -14,7 +16,49 @@ var defaultTo = []string{"CNY", "EUR", "GBP", "CAD", "AUD", "JPY"}
 
 func main() {
 	from, amount, to := parseArgs(os.Args)
-	core.Query(from, amount, to)
+	result := core.Query(from, amount, to)
+	renderResult(from, amount, to, result)
+}
+
+func renderResult(from string, amount float32, to []string, result map[string]string) {
+	table := tablewriter.NewWriter(os.Stdout)
+
+	// Set header array
+	header := []string{from}
+
+	if len(to) > 0 {
+		for _, t := range to {
+			if t != from {
+				header = append(header, t)
+			}
+		}
+	} else {
+		for _, t := range defaultTo {
+			if t != from {
+				header = append(header, t)
+			}
+		}
+	}
+
+	table.SetHeader(header)
+	row := []string{fmt.Sprintf("%.2f", amount)}
+
+	if len(to) > 0 {
+		for _, t := range to {
+			if t != from {
+				row = append(row, result[t])
+			}
+		}
+	} else {
+		for _, t := range defaultTo {
+			if t != from {
+				row = append(row, result[t])
+			}
+		}
+	}
+
+	table.Append(row)
+	table.Render() // Send output
 }
 
 func parseArgs(args []string) (string, float32, []string) {
