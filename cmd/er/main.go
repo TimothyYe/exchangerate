@@ -71,6 +71,7 @@ func parseArgs(args []string) (string, float32, []string) {
 	if len(args) == 2 {
 		if args[1] == "-h" || args[1] == "--help" {
 			fmt.Println("TODO: display help info")
+			os.Exit(0)
 		} else {
 			if len(args[1]) != 3 {
 				fmt.Println("Please input a valid currency")
