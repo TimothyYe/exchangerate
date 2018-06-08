@@ -7,12 +7,13 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/fatih/color"
 	"github.com/olekukonko/tablewriter"
 )
 
 const defaultFromt = "USD"
 
-var defaultTo = []string{"CNY", "EUR", "GBP", "CAD", "AUD", "JPY"}
+var defaultTo = []string{"USD", "CNY", "EUR", "GBP", "CAD", "AUD", "JPY"}
 
 func main() {
 	from, amount, to := parseArgs(os.Args)
@@ -22,6 +23,7 @@ func main() {
 
 func renderResult(from string, amount float32, to []string, result map[string]string) {
 	table := tablewriter.NewWriter(os.Stdout)
+	table.SetAlignment(tablewriter.ALIGN_CENTER)
 
 	// Set header array
 	header := []string{from}
@@ -41,18 +43,18 @@ func renderResult(from string, amount float32, to []string, result map[string]st
 	}
 
 	table.SetHeader(header)
-	row := []string{fmt.Sprintf("%.2f", amount)}
+	row := []string{color.RedString(fmt.Sprintf("%.2f", amount))}
 
 	if len(to) > 0 {
 		for _, t := range to {
 			if t != from {
-				row = append(row, result[t])
+				row = append(row, color.CyanString(result[t]))
 			}
 		}
 	} else {
 		for _, t := range defaultTo {
 			if t != from {
-				row = append(row, result[t])
+				row = append(row, color.CyanString(result[t]))
 			}
 		}
 	}
