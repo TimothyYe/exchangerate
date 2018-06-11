@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"sync"
 
+	"github.com/shopspring/decimal"
 	"github.com/tidwall/gjson"
 )
 
@@ -58,12 +59,14 @@ func (helper *RateHelper) Query() {
 				return
 			}
 
-			value := gjson.Get(string(body), fmt.Sprintf("%s_%s.val", helper.FromCurrency, to))
+			valueStr := gjson.Get(string(body), fmt.Sprintf("%s_%s.val", helper.FromCurrency, to))
 
-			if helper.Amount != 0 {
-				helper.SaveResult(to, fmt.Sprintf("%.2f", float32(value.Float())*helper.Amount))
+			if helper.Amount != 1 {
+				value := decimal.NewFromFloat(valueStr.Float())
+				result := value.Mul(decimal.NewFromFloat(float64(helper.Amount)))
+				helper.SaveResult(to, result.StringFixedBank(2))
 			} else {
-				helper.SaveResult(to, value.String())
+				helper.SaveResult(to, valueStr.String())
 			}
 		}(to)
 	}
