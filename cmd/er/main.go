@@ -70,7 +70,11 @@ func parseArgs(args []string) (string, float32, []string) {
 
 	if len(args) == 2 {
 		if args[1] == "-h" || args[1] == "--help" {
-			fmt.Println("TODO: display help info")
+			displayLogo()
+			displayHelp()
+			os.Exit(0)
+		} else if args[1] == "-v" || args[1] == "--version" {
+			color.Cyan("Exchange Rate V%s", Version)
 			os.Exit(0)
 		} else {
 			if len(args[1]) != 3 {

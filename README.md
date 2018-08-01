@@ -40,7 +40,7 @@ Download it from [releases](https://github.com/TimothyYe/exchangerate/releases) 
 ```bash
 % er -h
 
-Exchange Rate V0.1
+Exchange Rate V1.0
 https://github.com/TimothyYe/exchangerate
 
 NAME:
@@ -50,7 +50,7 @@ USAGE:
    er [from currency] [amount] [to currency]
 
 VERSION:
-   0.1
+   1.0
 
 EXAMPLES:
   er USD               Query USD and show exchange rate for common used currencies.  
