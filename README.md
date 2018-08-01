@@ -61,9 +61,9 @@ VERSION:
    0.1
 
 EXAMPLES:
-     er USD               Query USD and show exchange rate for common used currencies.
-     er USD 40.98         Query USD with amount 40.98, and show the equal amount of other currencies.
-		 er USD 12 CNY,JPY    Query USD with amount 12 and show the equal amount of specified currencies.
+  er USD               Query USD and show exchange rate for common used currencies.  
+  er USD 40.98         Query USD with amount 40.98, and show the equal amount of other currencies.  
+  er USD 12 CNY,JPY    Query USD with amount 12 and show the equal amount of specified currencies.  
 
 GLOBAL OPTIONS:
    --help, -h     show help
