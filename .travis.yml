@@ -1,0 +1,9 @@
+language: go
+go: 
+ - 1.8.x
+ - 1.9.x
+install:
+ - go get -v 
+ - go get -v github.com/fatih/color
+ - go get -v github.com/olekukonko/tablewriter
+
