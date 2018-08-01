@@ -1,4 +1,3 @@
-![](https://raw.githubusercontent.com/TimothyYe/skm/master/snapshots/skm.png)
 
 [![Release][3]][4] [![MIT licensed][5]][6] [![Build Status][1]][2] [![Go Report Card][7]][8] [![GoCover.io][11]][12] [![GoDoc][9]][10]
 
