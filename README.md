@@ -17,7 +17,7 @@
 
 A simple command-line tool to query exchange rate.
 
-![](https://github.com/TimothyYe/skm/blob/master/snapshots/demo.gif?raw=true)
+![](https://github.com/TimothyYe/exchange-rate/blob/master/snapshots/er-demo.gif?raw=true)
 
 ## Installation
 
@@ -63,8 +63,6 @@ GLOBAL OPTIONS:
    --help, -h     show help
    --version, -v  print the version
 ```
-
-### Demo
 
 ## Licence
 
