@@ -4,20 +4,14 @@
 |_ >< (_ | | (_| | | (_| (/_   | \ (_|  |_ (/_
                       _|    
 ```
-[![Release][3]][4] [![MIT licensed][5]][6] [![Build Status][1]][2] [![Go Report Card][7]][8] [![GoCover.io][11]][12] [![GoDoc][9]][10]
+[![Build Status][1]][2] [![Go Report Card][7]][8] [![GoDoc][9]][10]
 
 [1]: https://travis-ci.org/TimothyYe/exchange-rate.svg?branch=master
 [2]: https://travis-ci.org/TimothyYe/exchange-rate
-[3]: http://github-release-version.herokuapp.com/github/timothyye/exchange-rate/release.svg?style=flat
-[4]: https://github.com/timothyye/exchange-rate/releases/latest
-[5]: https://img.shields.io/dub/l/vibe-d.svg
-[6]: LICENSE
 [7]: https://goreportcard.com/badge/github.com/timothyye/exchange-rate
 [8]: https://goreportcard.com/report/github.com/timothyye/exchange-rate
 [9]: https://godoc.org/github.com/TimothyYe/exchange-rate?status.svg
 [10]: https://godoc.org/github.com/TimothyYe/exchange-rate
-[11]: https://img.shields.io/badge/gocover.io-81.8%25-green.svg
-[12]: https://gocover.io/github.com/timothyye/exchange-rate
 
 A simple command-line tool to query exchange rate.
 
