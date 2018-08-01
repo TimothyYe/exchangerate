@@ -1,12 +1,12 @@
 package main
 
 import (
-	"exchange-rates"
 	"fmt"
 	"os"
 	"strconv"
 	"strings"
 
+	"github.com/TimothyYe/exchangerate"
 	"github.com/fatih/color"
 	"github.com/olekukonko/tablewriter"
 )
@@ -17,7 +17,7 @@ var defaultTo = []string{"USD", "CNY", "EUR", "GBP", "CAD", "AUD", "JPY"}
 
 func main() {
 	from, amount, to := parseArgs(os.Args)
-	result := core.Query(from, amount, to)
+	result := exchangerate.Query(from, amount, to)
 	renderResult(from, amount, to, result)
 }
 

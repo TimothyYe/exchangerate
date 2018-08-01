@@ -6,16 +6,16 @@
 ```
 [![Build Status][1]][2] [![Go Report Card][7]][8] [![GoDoc][9]][10]
 
-[1]: https://travis-ci.org/TimothyYe/exchange-rate.svg?branch=master
-[2]: https://travis-ci.org/TimothyYe/exchange-rate
-[7]: https://goreportcard.com/badge/github.com/timothyye/exchange-rate
-[8]: https://goreportcard.com/report/github.com/timothyye/exchange-rate
-[9]: https://godoc.org/github.com/TimothyYe/exchange-rate?status.svg
-[10]: https://godoc.org/github.com/TimothyYe/exchange-rate
+[1]: https://travis-ci.org/TimothyYe/exchangerate.svg?branch=master
+[2]: https://travis-ci.org/TimothyYe/exchangerate
+[7]: https://goreportcard.com/badge/github.com/timothyye/exchangerate
+[8]: https://goreportcard.com/report/github.com/timothyye/exchangerate
+[9]: https://godoc.org/github.com/TimothyYe/exchangerate?status.svg
+[10]: https://godoc.org/github.com/TimothyYe/exchangerate
 
 A simple command-line tool to query exchange rate.
 
-![](https://github.com/TimothyYe/exchange-rate/blob/master/snapshots/er-demo.gif?raw=true)
+![](https://github.com/TimothyYe/exchangerate/blob/master/snapshots/er-demo.gif?raw=true)
 
 ## Installation
 
@@ -23,25 +23,25 @@ A simple command-line tool to query exchange rate.
 
 ```bash
 brew tap timothyye/tap
-brew install timothyye/tap/exchange-rate
+brew install timothyye/tap/exchangerate
 ```
 
 #### Using Go
 
 ```bash
-go get github.com/TimothyYe/exchange-rate/cmd/er
+go get github.com/TimothyYe/exchangerate/cmd/er
 ```
 
 #### Manual Installation
 
-Download it from [releases](https://github.com/TimothyYe/exchange-rate/releases) and extact it to /usr/bin or your PATH directory.
+Download it from [releases](https://github.com/TimothyYe/exchangerate/releases) and extact it to /usr/bin or your PATH directory.
 
 ## Usage
 ```bash
 % er -h
 
 Exchange Rate V0.1
-https://github.com/TimothyYe/exchange-rate
+https://github.com/TimothyYe/exchangerate
 
 NAME:
    Exchange Rate - A simple command-line tool to query exchange rate
@@ -64,4 +64,4 @@ GLOBAL OPTIONS:
 
 ## Licence
 
-[MIT License](https://github.com/TimothyYe/exchange-rate/blob/master/LICENSE)
+[MIT License](https://github.com/TimothyYe/exchangerate/blob/master/LICENSE)

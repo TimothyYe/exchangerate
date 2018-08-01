@@ -1,4 +1,4 @@
-package core
+package exchangerate
 
 // Query exchange rates for multiple currencies
 func Query(from string, amount float32, to []string) map[string]string {
