@@ -7,6 +7,7 @@ import (
 )
 
 const (
+	// Version is the main version of exchangerate
 	Version = "1.0"
 
 	logo = `
