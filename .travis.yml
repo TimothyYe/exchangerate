@@ -6,7 +6,7 @@ install:
  - go get -v 
  - go get -v github.com/fatih/color
  - go get -v github.com/olekukonko/tablewriter
- - go install gopkg.in/alecthomas/gometalinter.v2
+ - go get -u github.com/alecthomas/gometalinter
 script:
  - gometalinter --install
  - gometalinter --config=./gometalinter.json --vendor ./...
