@@ -1,7 +1,6 @@
 {
   "Deadline": "2m",
   "Enable": [
-    "gas",
     "goimports",
     "golint",
     "ineffassign",
