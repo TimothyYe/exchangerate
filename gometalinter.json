@@ -1,0 +1,17 @@
+{
+  "Deadline": "2m",
+  "Enable": [
+    "gas",
+    "goimports",
+    "golint",
+    "ineffassign",
+    "lll",
+    "misspell",
+    "vet",
+    "megacheck"
+  ],
+  "Exclude": [
+    "snapshots/"
+  ],
+  "LineLength": 100
+}
