@@ -90,7 +90,8 @@ func parseArgs(args []string) (string, float32, []string) {
 
 	if len(args) >= 3 {
 		from = args[1]
-		s, err := strconv.ParseFloat(args[2], 32)
+		amountArg := strings.Replace(args[2], ",", "", -1)
+		s, err := strconv.ParseFloat(amountArg, 32)
 		if err != nil {
 			fmt.Println("Please input valid amount")
 		}
