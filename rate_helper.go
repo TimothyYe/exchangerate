@@ -10,10 +10,11 @@ import (
 	"github.com/tidwall/gjson"
 )
 
-const apiAddress = "http://free.currencyconverterapi.com/api/v5/convert?q=%s_%s&compact=y"
+const apiAddress = "https://free.currencyconverterapi.com/api/v6/convert?q=%s_%s&compact=y&apiKey=%s"
 
 // RateHelper struct definition
 type RateHelper struct {
+	APIKey       string
 	Amount       float32
 	FromCurrency string
 	ToCurrency   []string
@@ -45,7 +46,7 @@ func (helper *RateHelper) Query() {
 		go func(to string) {
 			defer wg.Done()
 
-			resp, err := http.Get(fmt.Sprintf(apiAddress, helper.FromCurrency, to))
+			resp, err := http.Get(fmt.Sprintf(apiAddress, helper.FromCurrency, to, helper.APIKey))
 			if err != nil {
 				helper.SaveResult(to, "N/A")
 				return

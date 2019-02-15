@@ -36,6 +36,11 @@ go get github.com/TimothyYe/exchangerate/cmd/er
 
 Download it from [releases](https://github.com/TimothyYe/exchangerate/releases) and extact it to /usr/bin or your PATH directory.
 
+## Get API Key
+
+* Visit [https://free.currencyconverterapi.com/free-api-key](https://free.currencyconverterapi.com/free-api-key) and get your free API key.
+* Save your API key into `~/.er` file.
+
 ## Usage
 ```bash
 % er -h

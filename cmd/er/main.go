@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
+	"path/filepath"
 	"strconv"
 	"strings"
 
@@ -14,11 +16,35 @@ import (
 const defaultFromt = "USD"
 
 var defaultTo = []string{"USD", "CNY", "EUR", "GBP", "CAD", "AUD", "JPY"}
+var defaultAPIKeyPath = filepath.Join(os.Getenv("HOME"), ".er")
 
 func main() {
+	checkAPIKey()
+	apiKey, err := loadAPIKey()
+	if err != nil || apiKey == "" {
+		fmt.Println("failed to load API key")
+		os.Exit(1)
+	}
+
 	from, amount, to := parseArgs(os.Args)
-	result := exchangerate.Query(from, amount, to)
+	result := exchangerate.Query(apiKey, from, amount, to)
 	renderResult(from, amount, to, result)
+}
+
+func checkAPIKey() {
+	if _, err := os.Stat(defaultAPIKeyPath); os.IsNotExist(err) {
+		// key file does not exist
+		fmt.Println("Cannot find API key file, please put your API key in file: ", defaultAPIKeyPath)
+		os.Exit(1)
+	}
+}
+
+func loadAPIKey() (string, error) {
+	content, err := ioutil.ReadFile(defaultAPIKeyPath)
+	if err != nil {
+		return "", err
+	}
+	return strings.Replace(string(content), "\n", "", -1), nil
 }
 
 func renderResult(from string, amount float32, to []string, result map[string]string) {
