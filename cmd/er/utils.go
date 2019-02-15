@@ -6,10 +6,12 @@ import (
 	"github.com/fatih/color"
 )
 
-const (
+var (
 	// Version is the main version of exchangerate
 	Version = "1.0"
+)
 
+const (
 	logo = `
  _                              _             
 |_     _ |_   _. ._   _   _    |_)  _. _|_  _ 

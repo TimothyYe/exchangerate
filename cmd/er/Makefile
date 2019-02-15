@@ -3,7 +3,6 @@ BINARY=er
 # Builds the project
 build:
 		GO111MODULE=on go build -ldflags "-X main.Version=${VERSION}" -o ${BINARY}
-		GO111MODULE=on go test -v
 # Installs our project: copies binaries
 install:
 		GO111MODULE=on go install
