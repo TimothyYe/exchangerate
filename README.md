@@ -41,6 +41,13 @@ Download it from [releases](https://github.com/TimothyYe/exchangerate/releases) 
 * Visit [https://free.currencyconverterapi.com/free-api-key](https://free.currencyconverterapi.com/free-api-key) and get your free API key.
 * Save your API key into `~/.er` file.
 
+Your  `.er` file may looks like:
+
+```bash
+→ cat ~/.er 
+15d684b456848e2da877
+```
+
 ## Usage
 ```bash
 % er -h
