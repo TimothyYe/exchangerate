@@ -52,7 +52,7 @@ Your  `.er` file may looks like:
 ```bash
 % er -h
 
-Exchange Rate V1.1
+Exchange Rate V1.2
 https://github.com/TimothyYe/exchangerate
 
 NAME:
@@ -62,7 +62,7 @@ USAGE:
    er [from currency] [amount] [to currency]
 
 VERSION:
-   1.1
+   1.2
 
 EXAMPLES:
   er USD               Query USD and show exchange rate for common used currencies.  
