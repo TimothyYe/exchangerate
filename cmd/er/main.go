@@ -13,9 +13,9 @@ import (
 	"github.com/olekukonko/tablewriter"
 )
 
-const defaultFromt = "USD"
+const defaultFrom = "USD"
 
-var defaultTo = []string{"USD", "CNY", "EUR", "GBP", "CAD", "AUD", "JPY"}
+var defaultTo = []string{"USD", "CNY", "SGD", "EUR", "GBP", "CAD", "AUD", "JPY"}
 var defaultAPIKeyPath = filepath.Join(os.Getenv("HOME"), ".er")
 
 func main() {
@@ -131,7 +131,7 @@ func parseArgs(args []string) (string, float32, []string) {
 	}
 
 	if len(args) == 1 {
-		from = defaultFromt
+		from = defaultFrom
 		amount = 1
 		to = defaultTo
 	}
